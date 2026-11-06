@@ -1,0 +1,315 @@
+{
+  "all_pairs_pass": true,
+  "architecture": {
+    "group_count": 6,
+    "groups": [
+      {
+        "count": 1,
+        "node": "All nodes",
+        "projects": [
+          "P25"
+        ],
+        "repos": [
+          "fleet-capstone"
+        ],
+        "v1_0_count": 0
+      },
+      {
+        "count": 11,
+        "node": "BlackBox (GPU)",
+        "projects": [
+          "P01",
+          "P03",
+          "P04",
+          "P10",
+          "P11",
+          "P15",
+          "P17",
+          "P18",
+          "P19",
+          "P22",
+          "P26"
+        ],
+        "repos": [
+          "llm-from-scratch",
+          "vllm-serving-lab",
+          "cuda-kernels-lab",
+          "finetune-lab",
+          "quantization-lab",
+          "local-first-ai",
+          "signal-ml-lab",
+          "voice-agent-lab",
+          "distributed-training-lab",
+          "multimodal-lab",
+          "rl-environments-and-verifiers"
+        ],
+        "v1_0_count": 10
+      },
+      {
+        "count": 9,
+        "node": "BlackBoxV2",
+        "projects": [
+          "P05",
+          "P06",
+          "P07",
+          "P08",
+          "P09",
+          "P12",
+          "P13",
+          "P27",
+          "P29"
+        ],
+        "repos": [
+          "rag-foundation",
+          "rag-eval-harness",
+          "agent-from-scratch",
+          "orchestrator-lab",
+          "mcp-toolkit",
+          "llm-observability",
+          "guardrails-lab",
+          "agent-evals-and-harness",
+          "agent-memory-lab"
+        ],
+        "v1_0_count": 9
+      },
+      {
+        "count": 3,
+        "node": "BlackBoxV3",
+        "projects": [
+          "P02",
+          "P14",
+          "P21"
+        ],
+        "repos": [
+          "tokenizer-lab",
+          "structured-outputs-lab",
+          "systems-languages-lab"
+        ],
+        "v1_0_count": 3
+      },
+      {
+        "count": 1,
+        "node": "Cluster (V2, V3, R610)",
+        "projects": [
+          "P20"
+        ],
+        "repos": [
+          "ml-platform-lab"
+        ],
+        "v1_0_count": 1
+      },
+      {
+        "count": 4,
+        "node": "Dell R610",
+        "projects": [
+          "P16",
+          "P23",
+          "P24",
+          "P28"
+        ],
+        "repos": [
+          "document-intelligence",
+          "server-and-networking-lab",
+          "cyber-range-lab",
+          "post-training-data-lab"
+        ],
+        "v1_0_count": 3
+      }
+    ],
+    "total_projects": 29
+  },
+  "architecture_group_count": 6,
+  "as_of": "2026-11-06",
+  "assembly_window": "2026-12-28 to 2026-12-30",
+  "deep_claimed": false,
+  "exceptions": [
+    "P19",
+    "P23",
+    "P25"
+  ],
+  "layer_pairs_passed": 5,
+  "layer_pairs_total": 5,
+  "live_deployment_run": false,
+  "network_pair_notes": "Network side partial on P23: P23 is at Learn only, covered in this records chain by P20 at v1.0. No P23 Build or Deep record exists.",
+  "records_reused": 29,
+  "security_posture": {
+    "all_v1_0": true,
+    "basis": "Derived from Learn records only. Defensive only.",
+    "notes": [
+      "P24 cyber-range-lab at v1.0: isolated range work, defensive posture recorded in its own repo, linked not copied.",
+      "P13 guardrails-lab at v1.0: guardrail checks recorded in its own repo, linked not copied.",
+      "P20 ml-platform-lab at v1.0: platform layer that carries network and cluster posture, linked not copied.",
+      "No offensive scenario content is included in this capstone. P24 scenario work stays under its own sign-off rules in its own repo."
+    ],
+    "project_ids": [
+      "P24",
+      "P13",
+      "P20"
+    ],
+    "projects": [
+      {
+        "node": "Dell R610",
+        "project": "P24",
+        "proof_link": "https://github.com/JesunAhmadUshno/cyber-range-lab/releases/tag/v1.0",
+        "repo": "cyber-range-lab",
+        "status": "v1.0"
+      },
+      {
+        "node": "BlackBoxV2",
+        "project": "P13",
+        "proof_link": "https://github.com/JesunAhmadUshno/guardrails-lab/releases/tag/v1.0",
+        "repo": "guardrails-lab",
+        "status": "v1.0"
+      },
+      {
+        "node": "Cluster (V2, V3, R610)",
+        "project": "P20",
+        "proof_link": "https://github.com/JesunAhmadUshno/ml-platform-lab/releases/tag/v1.0",
+        "repo": "ml-platform-lab",
+        "status": "v1.0"
+      }
+    ],
+    "v1_0_count": 3
+  },
+  "v1_0_count": 26,
+  "worked_chains": [
+    {
+      "check": "both sides have at least one v1.0 record",
+      "from_layer": "network",
+      "from_projects": [
+        "P23",
+        "P20"
+      ],
+      "from_proof_links": [
+        "https://github.com/JesunAhmadUshno/server-and-networking-lab/releases/tag/v0.1",
+        "https://github.com/JesunAhmadUshno/ml-platform-lab/releases/tag/v1.0"
+      ],
+      "from_v1_0_projects": [
+        "P20"
+      ],
+      "interface": "Network provides the isolated lab network and platform networking that security work runs inside. Link-based: follow the P20 and P23 proof links in the records to their repos and releases; no network configuration is copied here.",
+      "notes": "Network side partial on P23: P23 is at Learn only, covered in this records chain by P20 at v1.0. No P23 Build or Deep record exists.",
+      "passed": true,
+      "to_layer": "security",
+      "to_projects": [
+        "P24",
+        "P13"
+      ],
+      "to_proof_links": [
+        "https://github.com/JesunAhmadUshno/cyber-range-lab/releases/tag/v1.0",
+        "https://github.com/JesunAhmadUshno/guardrails-lab/releases/tag/v1.0"
+      ],
+      "to_v1_0_projects": [
+        "P24",
+        "P13"
+      ]
+    },
+    {
+      "check": "both sides have at least one v1.0 record",
+      "from_layer": "security",
+      "from_projects": [
+        "P24",
+        "P13"
+      ],
+      "from_proof_links": [
+        "https://github.com/JesunAhmadUshno/cyber-range-lab/releases/tag/v1.0",
+        "https://github.com/JesunAhmadUshno/guardrails-lab/releases/tag/v1.0"
+      ],
+      "from_v1_0_projects": [
+        "P24",
+        "P13"
+      ],
+      "interface": "Security provides defensive guardrails and range isolation checks that a model must pass before use. Link-based: follow the P24 and P13 proof links to their repos; no guardrail code or range content is copied here.",
+      "notes": "",
+      "passed": true,
+      "to_layer": "model",
+      "to_projects": [
+        "P01"
+      ],
+      "to_proof_links": [
+        "https://github.com/JesunAhmadUshno/llm-from-scratch/releases/tag/v1.0"
+      ],
+      "to_v1_0_projects": [
+        "P01"
+      ]
+    },
+    {
+      "check": "both sides have at least one v1.0 record",
+      "from_layer": "model",
+      "from_projects": [
+        "P01"
+      ],
+      "from_proof_links": [
+        "https://github.com/JesunAhmadUshno/llm-from-scratch/releases/tag/v1.0"
+      ],
+      "from_v1_0_projects": [
+        "P01"
+      ],
+      "interface": "The model layer provides the trained model artifact from P01 that serving loads. Link-based: follow the P01 proof link to its v1.0 release; no model code or weights are copied here.",
+      "notes": "",
+      "passed": true,
+      "to_layer": "serving",
+      "to_projects": [
+        "P03"
+      ],
+      "to_proof_links": [
+        "https://github.com/JesunAhmadUshno/vllm-serving-lab/releases/tag/v1.0"
+      ],
+      "to_v1_0_projects": [
+        "P03"
+      ]
+    },
+    {
+      "check": "both sides have at least one v1.0 record",
+      "from_layer": "serving",
+      "from_projects": [
+        "P03"
+      ],
+      "from_proof_links": [
+        "https://github.com/JesunAhmadUshno/vllm-serving-lab/releases/tag/v1.0"
+      ],
+      "from_v1_0_projects": [
+        "P03"
+      ],
+      "interface": "Serving provides inference responses that scoring evaluates with the P06 harness. Link-based: follow the P03 proof link to its v1.0 release; no serving code is copied here.",
+      "notes": "",
+      "passed": true,
+      "to_layer": "scoring",
+      "to_projects": [
+        "P06"
+      ],
+      "to_proof_links": [
+        "https://github.com/JesunAhmadUshno/rag-eval-harness/releases/tag/v1.0"
+      ],
+      "to_v1_0_projects": [
+        "P06"
+      ]
+    },
+    {
+      "check": "both sides have at least one v1.0 record",
+      "from_layer": "scoring",
+      "from_projects": [
+        "P06"
+      ],
+      "from_proof_links": [
+        "https://github.com/JesunAhmadUshno/rag-eval-harness/releases/tag/v1.0"
+      ],
+      "from_v1_0_projects": [
+        "P06"
+      ],
+      "interface": "Scoring provides evaluation results and failure labels that watching observes and reports. Link-based: follow the P06 proof link to its v1.0 release; no scoring code is copied here.",
+      "notes": "",
+      "passed": true,
+      "to_layer": "watching",
+      "to_projects": [
+        "P12"
+      ],
+      "to_proof_links": [
+        "https://github.com/JesunAhmadUshno/llm-observability/releases/tag/v1.0"
+      ],
+      "to_v1_0_projects": [
+        "P12"
+      ]
+    }
+  ]
+}
