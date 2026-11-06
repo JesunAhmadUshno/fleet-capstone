@@ -3,18 +3,27 @@
 Cluster 1, All nodes 1 = 6 groups, 29 total. 5 layer pairs.
 Run: python tests/test_build_capstone.py
 """
-import os, sys
+import os
+import sys
+
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT,"level-2-build"))
 sys.path.insert(0, os.path.join(ROOT,"level-1-learn"))
-from capstone_build import LAYER_PAIRS, fleet_architecture, run_all, security_posture, worked_chains
-from capstone_learn import load_records
+from capstone_build import (  # noqa: E402
+    LAYER_PAIRS,
+    fleet_architecture,
+    run_all,
+    security_posture,
+    worked_chains,
+)
+from capstone_learn import load_records  # noqa: E402
+
 PASS=0
-def check(c,l):
+def check(c,label):
     global PASS
-    assert c,l
+    assert c,label
     PASS+=1
-    print("ok:",l)
+    print("ok:",label)
 records=load_records()
 check(len(records)==29,"29 records reused")
 res=run_all(records)
@@ -37,7 +46,8 @@ sec=security_posture(records)
 check(sec["project_ids"]==["P24","P13","P20"],"security projects P24 P13 P20")
 check(sec["all_v1_0"] is True and sec["v1_0_count"]==3,"security all v1.0")
 check(all(p["proof_link"].endswith("/releases/tag/v1.0") for p in sec["projects"]),"security proof links are v1.0 form")
-check(LAYER_PAIRS==[("network","security"),("security","model"),("model","serving"),("serving","scoring"),("scoring","watching")],"5 layer pairs in chain order")
+check(LAYER_PAIRS==[("network","security"),("security","model"),("model","serving"),
+                    ("serving","scoring"),("scoring","watching")],"5 layer pairs in chain order")
 chains=worked_chains(records)
 check(len(chains)==5,"5 worked chains")
 check(all(c["passed"] for c in chains),"all 5 pairs pass")
@@ -50,7 +60,8 @@ check(chains[2]["from_projects"]==["P01"] and chains[2]["to_projects"]==["P03"],
 check(chains[3]["to_projects"]==["P06"],"serving to scoring pair")
 check(chains[4]["to_projects"]==["P12"],"scoring to watching pair")
 check(all(c["interface"] for c in chains),"every chain has interface description")
-check(all("github.com/JesunAhmadUshno/" in link for c in chains for link in c["from_proof_links"]+c["to_proof_links"]),"proof links are GitHub links")
+check(all("github.com/JesunAhmadUshno/" in link for c in chains
+          for link in c["from_proof_links"]+c["to_proof_links"]),"proof links are GitHub links")
 check(res["live_deployment_run"] is False,"no live deployment claimed")
 check(res["deep_claimed"] is False,"Deep not claimed")
 print(f"test_build_capstone: PASS, {PASS} checks")

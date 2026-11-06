@@ -83,10 +83,12 @@ def security_posture(records):
         "all_v1_0": all(i["status"] == "v1.0" for i in items),
         "v1_0_count": sum(1 for i in items if i["status"] == "v1.0"),
         "notes": [
-            "P24 cyber-range-lab at v1.0: isolated range work, defensive posture recorded in its own repo, linked not copied.",
+            "P24 cyber-range-lab at v1.0: isolated range work, defensive posture recorded in its own repo, "
+            "linked not copied.",
             "P13 guardrails-lab at v1.0: guardrail checks recorded in its own repo, linked not copied.",
             "P20 ml-platform-lab at v1.0: platform layer that carries network and cluster posture, linked not copied.",
-            "No offensive scenario content is included in this capstone. P24 scenario work stays under its own sign-off rules in its own repo.",
+            "No offensive scenario content is included in this capstone. P24 scenario work stays under "
+            "its own sign-off rules in its own repo.",
         ],
     }
 
