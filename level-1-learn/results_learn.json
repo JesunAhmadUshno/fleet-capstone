@@ -1,0 +1,111 @@
+{
+  "as_of": "2026-11-05",
+  "chain_all_covered": true,
+  "chain_layers": {
+    "model": {
+      "covered": true,
+      "partial_projects": [],
+      "projects": [
+        "P01"
+      ],
+      "v1_0_projects": [
+        "P01"
+      ]
+    },
+    "network": {
+      "covered": true,
+      "partial_projects": [
+        "P23"
+      ],
+      "projects": [
+        "P23",
+        "P20"
+      ],
+      "v1_0_projects": [
+        "P20"
+      ]
+    },
+    "scoring": {
+      "covered": true,
+      "partial_projects": [],
+      "projects": [
+        "P06"
+      ],
+      "v1_0_projects": [
+        "P06"
+      ]
+    },
+    "security": {
+      "covered": true,
+      "partial_projects": [],
+      "projects": [
+        "P24",
+        "P13"
+      ],
+      "v1_0_projects": [
+        "P24",
+        "P13"
+      ]
+    },
+    "serving": {
+      "covered": true,
+      "partial_projects": [],
+      "projects": [
+        "P03"
+      ],
+      "v1_0_projects": [
+        "P03"
+      ]
+    },
+    "watching": {
+      "covered": true,
+      "partial_projects": [],
+      "projects": [
+        "P12"
+      ],
+      "v1_0_projects": [
+        "P12"
+      ]
+    }
+  },
+  "chain_verdict": "All 6 chain layers are covered by at least one v1.0 record. Honest limit: the network layer rests on P23 Learn only until its Build lands; P20 (ml-platform-lab, v1.0) covers the layer in the records chain, but no P23 Build or Deep record exists. This is a records chain, not a running chain: no live end to end deployment was run by this level.",
+  "coverage_text": "26 of 29 projects at v1.0",
+  "exceptions": [
+    "P19",
+    "P23",
+    "P25"
+  ],
+  "records_count": 29,
+  "total_projects": 29,
+  "v1_0_count": 26,
+  "v1_0_projects": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P20",
+    "P21",
+    "P22",
+    "P24",
+    "P26",
+    "P27",
+    "P28",
+    "P29"
+  ],
+  "valid": true,
+  "validation_errors": []
+}
