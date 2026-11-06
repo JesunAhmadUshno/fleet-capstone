@@ -11,8 +11,13 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "level-1-learn"))
 from capstone_learn import (  # noqa: E402
-    CHAIN_LAYERS, chain_check, coverage, load_records, run_all,
-    validate_record, validate_records,
+    CHAIN_LAYERS,
+    chain_check,
+    coverage,
+    load_records,
+    run_all,
+    validate_record,
+    validate_records,
 )
 
 PASS = 0
