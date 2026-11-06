@@ -2,8 +2,10 @@
 import json
 import os
 import sys
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from capstone_build import run_all  # noqa: E402
+
 if __name__ == "__main__":
     results = run_all()
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results_build.json")
