@@ -10,3 +10,7 @@ jobs:
           python-version: "3.12"
       - name: scaffold smoke test
         run: python tests/test_smoke.py
+      - name: Learn tests and runner
+        run: |
+          python tests/test_learn_capstone.py
+          python level-1-learn/run_learn.py

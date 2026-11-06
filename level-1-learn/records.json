@@ -1,0 +1,268 @@
+{
+  "as_of": "2026-11-05",
+  "source": "Batch ledger hidden_files/batch-state.md plus gh release list verification on 2026-11-05",
+  "total_projects": 29,
+  "records": [
+    {
+      "project": "P01",
+      "repo": "llm-from-scratch",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/llm-from-scratch/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P02",
+      "repo": "tokenizer-lab",
+      "node": "BlackBoxV3",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/tokenizer-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P03",
+      "repo": "vllm-serving-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/vllm-serving-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P04",
+      "repo": "cuda-kernels-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/cuda-kernels-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P05",
+      "repo": "rag-foundation",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/rag-foundation/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P06",
+      "repo": "rag-eval-harness",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/rag-eval-harness/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P07",
+      "repo": "agent-from-scratch",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-from-scratch/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P08",
+      "repo": "orchestrator-lab",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/orchestrator-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P09",
+      "repo": "mcp-toolkit",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/mcp-toolkit/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P10",
+      "repo": "finetune-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/finetune-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P11",
+      "repo": "quantization-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/quantization-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P12",
+      "repo": "llm-observability",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/llm-observability/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P13",
+      "repo": "guardrails-lab",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/guardrails-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P14",
+      "repo": "structured-outputs-lab",
+      "node": "BlackBoxV3",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/structured-outputs-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P15",
+      "repo": "local-first-ai",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/local-first-ai/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P16",
+      "repo": "document-intelligence",
+      "node": "Dell R610",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/document-intelligence/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P17",
+      "repo": "signal-ml-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/signal-ml-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P18",
+      "repo": "voice-agent-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/voice-agent-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P19",
+      "repo": "distributed-training-lab",
+      "node": "BlackBox (GPU)",
+      "status": "Learn+Build",
+      "proof_link": "https://github.com/JesunAhmadUshno/distributed-training-lab/releases/tag/v0.5",
+      "release_verified": true,
+      "steps": "Learn and Build shipped (releases v0.1 and v0.5 verified with gh release list on 2026-11-05); Deep open, defined as the 2-GPU Kaggle exercise set per Addendum B, waiting on the Kaggle window; no v1.0 release exists."
+    },
+    {
+      "project": "P20",
+      "repo": "ml-platform-lab",
+      "node": "Cluster (V2, V3, R610)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/ml-platform-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P21",
+      "repo": "systems-languages-lab",
+      "node": "BlackBoxV3",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/systems-languages-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P22",
+      "repo": "multimodal-lab",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/multimodal-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P23",
+      "repo": "server-and-networking-lab",
+      "node": "Dell R610",
+      "status": "Learn only",
+      "proof_link": "https://github.com/JesunAhmadUshno/server-and-networking-lab/releases/tag/v0.1",
+      "release_verified": true,
+      "steps": "Learn shipped (release v0.1 verified with gh release list on 2026-11-05); Build blocked on a fresh live R610 evidence capture in a planned power-on window; no v0.5 or v1.0 release exists."
+    },
+    {
+      "project": "P24",
+      "repo": "cyber-range-lab",
+      "node": "Dell R610",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/cyber-range-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P25",
+      "repo": "fleet-capstone",
+      "node": "All nodes",
+      "status": "Learn in progress",
+      "proof_link": null,
+      "release_verified": false,
+      "steps": "This project: Learn level in progress in this repo (deployment records, validator and chain checker); Build and Deep not started; capstone assembly stays scheduled 2026-12-28 to 2026-12-30 and is not claimed here; no release existed at record write time."
+    },
+    {
+      "project": "P26",
+      "repo": "rl-environments-and-verifiers",
+      "node": "BlackBox (GPU)",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/rl-environments-and-verifiers/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P27",
+      "repo": "agent-evals-and-harness",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-evals-and-harness/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P28",
+      "repo": "post-training-data-lab",
+      "node": "Dell R610",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/post-training-data-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    },
+    {
+      "project": "P29",
+      "repo": "agent-memory-lab",
+      "node": "BlackBoxV2",
+      "status": "v1.0",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-memory-lab/releases/tag/v1.0",
+      "release_verified": true,
+      "steps": "Learn, Build and Deep levels shipped per batch ledger; tests and CI recorded in that project repo; release v1.0 published and verified with gh release list on 2026-11-05."
+    }
+  ]
+}
