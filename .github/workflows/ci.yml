@@ -14,3 +14,7 @@ jobs:
         run: |
           python tests/test_learn_capstone.py
           python level-1-learn/run_learn.py
+      - name: Build tests and runner
+        run: |
+          python tests/test_build_capstone.py
+          python level-2-build/run_build.py
