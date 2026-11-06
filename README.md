@@ -2,8 +2,10 @@
 
 The whole fleet story in one chain: network to security to model to serving, in one repo, with a runbook a stranger can follow.
 
-Status: SCAFFOLD (Wave 0, ROADMAP-V3-BATCH, 2026-11-04). Scaffold is not built. No results exist yet.
+Status: Learn DONE 2026-11-05 (early pull; ROADMAP-V3-BATCH). Build and Deep not started. Capstone assembly stays scheduled 2026-12-28 to 2026-12-30 and is not claimed here.
 Project: P25. Fleet node: All fleet nodes. Wave: Scaffold in Wave 0, assembly in Wave 8.
+
+Learn summary claim: Learn built a deployment record for each of the 29 ROADMAP-V3-BATCH projects: 26 records at v1.0, each with a GitHub release proof link verified with gh release list on 2026-11-05, plus named non-v1.0 records for P19 (Learn+Build, Deep open on the Kaggle window), P23 (Learn only, Build blocked on the R610 capture) and P25 itself (Learn in progress); a standard-library validator and chain checker confirm 0 validation errors, all 6 SPEC chain layers covered by at least one v1.0 record with the network layer named partial on P23, and results_learn.json byte-identical across two runs at sha256 26dbffbd7093915dea66f6c24a55e5cd43603f0add6bfdd2d45b96d7f0bab51a. Grade: Learn 7,900 of 10,000 (deductions named in level-1-learn/README.md). Jev claim_check on this claim: model jev-1.13.0, 1189 input tokens, 20 output tokens, question id supported, noul 0.46, route REVIEW.
 
 ## Start here
 
@@ -22,7 +24,10 @@ Project: P25. Fleet node: All fleet nodes. Wave: Scaffold in Wave 0, assembly in
 
 | Test | Result |
 | --- | --- |
-| NO RESULTS YET | No measurement has run. This table fills only with measured numbers, with method. |
+| Learn records validated | 29 records, 0 validation errors (level-1-learn/capstone_learn.py, 2026-11-05) |
+| Learn coverage | 26 of 29 projects at v1.0; exceptions P19, P23, P25 (gh release list verified, 2026-11-05) |
+| Learn chain check | 6 of 6 SPEC layers covered by a v1.0 record; network layer partial on P23 (records chain, not a running chain) |
+| Learn tests | 29 hand-computed checks plus scaffold smoke test, all passing |
 
 ## Novelty
 
