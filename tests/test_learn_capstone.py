@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.join(ROOT, "level-1-learn"))
 from capstone_learn import (  # noqa: E402
     CHAIN_LAYERS,
     chain_check,
+    chain_check_primary,
     coverage,
     load_records,
     run_all,
@@ -86,6 +87,15 @@ check(chain["layers"]["network"]["v1_0_projects"] == ["P20"], "network v1.0 is P
 check(chain["layers"]["network"]["partial_projects"] == ["P23"], "network names P23 partial")
 check("P23 Learn only" in chain["verdict"], "verdict names the P23 limit")
 check("not a running chain" in chain["verdict"], "verdict states records chain limit")
+
+# Sensitivity: primary project only (hand-computed: P23 is Learn only,
+# every other primary P24, P01, P03, P06, P12 is at v1.0)
+prim = chain_check_primary(records)
+check(prim["rule"] == "primary project only", "sensitivity rule named")
+check(prim["primaries"]["network"] == "P23", "network primary is P23")
+check(prim["layers"]["network"]["covered"] is False, "network fails under primary-only rule")
+check(prim["covered_count"] == 5 and prim["layer_count"] == 6, "primary-only rule covers 5 of 6 layers")
+check(prim["all_covered"] is False, "primary-only rule does not cover all layers")
 
 # Full run
 res = run_all()

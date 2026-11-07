@@ -124,6 +124,32 @@ def chain_check(records):
     return {"layers": layers, "all_covered": all_covered, "verdict": verdict}
 
 
+def chain_check_primary(records):
+    """Sensitivity check: the stricter rule named in the README failure modes.
+
+    A layer counts as covered only when its primary project (the first one
+    listed in CHAIN_LAYERS, the one SPEC.md names) is at v1.0. Kept apart
+    from chain_check so results_learn.json and its quoted sha256 stay as
+    recorded; run_learn.py writes this to results_sensitivity.json.
+    """
+    by_id = {r["project"]: r for r in records}
+    primaries = {layer: projects[0] for layer, projects in CHAIN_LAYERS.items()}
+    layers = {}
+    for layer, pid in primaries.items():
+        status = by_id.get(pid, {}).get("status")
+        layers[layer] = {"primary": pid, "status": status, "covered": status == "v1.0"}
+    covered = sum(1 for v in layers.values() if v["covered"])
+    return {
+        "rule": "primary project only",
+        "primaries": primaries,
+        "layers": layers,
+        "covered_count": covered,
+        "layer_count": len(layers),
+        "all_covered": covered == len(layers),
+        "failing_layers": sorted(k for k, v in layers.items() if not v["covered"]),
+    }
+
+
 def run_all(path=RECORDS_PATH):
     records = load_records(path)
     errors = validate_records(records)
