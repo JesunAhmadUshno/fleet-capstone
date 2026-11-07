@@ -1,0 +1,54 @@
+{
+  "as_of": "2026-11-05",
+  "primary_only": {
+    "all_covered": false,
+    "covered_count": 5,
+    "failing_layers": [
+      "network"
+    ],
+    "layer_count": 6,
+    "layers": {
+      "model": {
+        "covered": true,
+        "primary": "P01",
+        "status": "v1.0"
+      },
+      "network": {
+        "covered": false,
+        "primary": "P23",
+        "status": "Learn only"
+      },
+      "scoring": {
+        "covered": true,
+        "primary": "P06",
+        "status": "v1.0"
+      },
+      "security": {
+        "covered": true,
+        "primary": "P24",
+        "status": "v1.0"
+      },
+      "serving": {
+        "covered": true,
+        "primary": "P03",
+        "status": "v1.0"
+      },
+      "watching": {
+        "covered": true,
+        "primary": "P12",
+        "status": "v1.0"
+      }
+    },
+    "primaries": {
+      "model": "P01",
+      "network": "P23",
+      "scoring": "P06",
+      "security": "P24",
+      "serving": "P03",
+      "watching": "P12"
+    },
+    "rule": "primary project only"
+  },
+  "repo_rule": "any listed project at v1.0",
+  "repo_rule_covered_count": 6
+}
