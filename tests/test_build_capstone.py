@@ -17,6 +17,7 @@ from capstone_build import (  # noqa: E402
     worked_chains,
 )
 from capstone_learn import load_records  # noqa: E402
+from verify_links import parse_release_link  # noqa: E402
 
 PASS=0
 def check(c,label):
@@ -64,4 +65,8 @@ check(all("github.com/JesunAhmadUshno/" in link for c in chains
           for link in c["from_proof_links"]+c["to_proof_links"]),"proof links are GitHub links")
 check(res["live_deployment_run"] is False,"no live deployment claimed")
 check(res["deep_claimed"] is False,"Deep not claimed")
+check(parse_release_link("https://github.com/JesunAhmadUshno/tokenizer-lab/releases/tag/v1.0")
+      ==("JesunAhmadUshno/tokenizer-lab","v1.0"),"link parser splits repo and tag")
+check(parse_release_link(None) is None,"link parser skips a null link")
+check(sum(1 for r in records if parse_release_link(r["proof_link"])) == 28,"28 records carry a release link")
 print(f"test_build_capstone: PASS, {PASS} checks")
