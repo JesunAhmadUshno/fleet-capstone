@@ -1,0 +1,243 @@
+{
+  "checked_on": "2026-11-07",
+  "links_checked": 28,
+  "links_resolved": 28,
+  "method": "gh release view <tag> and gh release view (latest) per repo",
+  "records_without_link": [
+    "P25"
+  ],
+  "rows": [
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P01",
+      "proof_link": "https://github.com/JesunAhmadUshno/llm-from-scratch/releases/tag/v1.0",
+      "repo": "llm-from-scratch",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P02",
+      "proof_link": "https://github.com/JesunAhmadUshno/tokenizer-lab/releases/tag/v1.0",
+      "repo": "tokenizer-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P03",
+      "proof_link": "https://github.com/JesunAhmadUshno/vllm-serving-lab/releases/tag/v1.0",
+      "repo": "vllm-serving-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P04",
+      "proof_link": "https://github.com/JesunAhmadUshno/cuda-kernels-lab/releases/tag/v1.0",
+      "repo": "cuda-kernels-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P05",
+      "proof_link": "https://github.com/JesunAhmadUshno/rag-foundation/releases/tag/v1.0",
+      "repo": "rag-foundation",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.2",
+      "project": "P06",
+      "proof_link": "https://github.com/JesunAhmadUshno/rag-eval-harness/releases/tag/v1.0",
+      "repo": "rag-eval-harness",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P07",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-from-scratch/releases/tag/v1.0",
+      "repo": "agent-from-scratch",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P08",
+      "proof_link": "https://github.com/JesunAhmadUshno/orchestrator-lab/releases/tag/v1.0",
+      "repo": "orchestrator-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P09",
+      "proof_link": "https://github.com/JesunAhmadUshno/mcp-toolkit/releases/tag/v1.0",
+      "repo": "mcp-toolkit",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P10",
+      "proof_link": "https://github.com/JesunAhmadUshno/finetune-lab/releases/tag/v1.0",
+      "repo": "finetune-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P11",
+      "proof_link": "https://github.com/JesunAhmadUshno/quantization-lab/releases/tag/v1.0",
+      "repo": "quantization-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P12",
+      "proof_link": "https://github.com/JesunAhmadUshno/llm-observability/releases/tag/v1.0",
+      "repo": "llm-observability",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P13",
+      "proof_link": "https://github.com/JesunAhmadUshno/guardrails-lab/releases/tag/v1.0",
+      "repo": "guardrails-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P14",
+      "proof_link": "https://github.com/JesunAhmadUshno/structured-outputs-lab/releases/tag/v1.0",
+      "repo": "structured-outputs-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P15",
+      "proof_link": "https://github.com/JesunAhmadUshno/local-first-ai/releases/tag/v1.0",
+      "repo": "local-first-ai",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P16",
+      "proof_link": "https://github.com/JesunAhmadUshno/document-intelligence/releases/tag/v1.0",
+      "repo": "document-intelligence",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P17",
+      "proof_link": "https://github.com/JesunAhmadUshno/signal-ml-lab/releases/tag/v1.0",
+      "repo": "signal-ml-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P18",
+      "proof_link": "https://github.com/JesunAhmadUshno/voice-agent-lab/releases/tag/v1.0",
+      "repo": "voice-agent-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v0.5",
+      "project": "P19",
+      "proof_link": "https://github.com/JesunAhmadUshno/distributed-training-lab/releases/tag/v0.5",
+      "repo": "distributed-training-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P20",
+      "proof_link": "https://github.com/JesunAhmadUshno/ml-platform-lab/releases/tag/v1.0",
+      "repo": "ml-platform-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P21",
+      "proof_link": "https://github.com/JesunAhmadUshno/systems-languages-lab/releases/tag/v1.0",
+      "repo": "systems-languages-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P22",
+      "proof_link": "https://github.com/JesunAhmadUshno/multimodal-lab/releases/tag/v1.0",
+      "repo": "multimodal-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v0.1",
+      "project": "P23",
+      "proof_link": "https://github.com/JesunAhmadUshno/server-and-networking-lab/releases/tag/v0.1",
+      "repo": "server-and-networking-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P24",
+      "proof_link": "https://github.com/JesunAhmadUshno/cyber-range-lab/releases/tag/v1.0",
+      "repo": "cyber-range-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": false,
+      "latest_tag": null,
+      "project": "P25",
+      "proof_link": null,
+      "repo": "fleet-capstone",
+      "tag_exists": null
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P26",
+      "proof_link": "https://github.com/JesunAhmadUshno/rl-environments-and-verifiers/releases/tag/v1.0",
+      "repo": "rl-environments-and-verifiers",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P27",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-evals-and-harness/releases/tag/v1.0",
+      "repo": "agent-evals-and-harness",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P28",
+      "proof_link": "https://github.com/JesunAhmadUshno/post-training-data-lab/releases/tag/v1.0",
+      "repo": "post-training-data-lab",
+      "tag_exists": true
+    },
+    {
+      "checked": true,
+      "latest_tag": "v1.0",
+      "project": "P29",
+      "proof_link": "https://github.com/JesunAhmadUshno/agent-memory-lab/releases/tag/v1.0",
+      "repo": "agent-memory-lab",
+      "tag_exists": true
+    }
+  ]
+}
