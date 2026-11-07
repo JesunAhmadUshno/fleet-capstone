@@ -2,6 +2,8 @@
 
 The whole fleet story in one chain: network to security to model to serving, in one repo, with a runbook a stranger can follow.
 
+Live dashboard: https://jesunahmadushno.github.io/fleet-capstone/ (records chain explorer with a live what-if chain checker and record validator; source in site/, every number read from the committed results at build time)
+
 Status: Learn DONE 2026-11-05 (early pull; ROADMAP-V3-BATCH). Build DONE 2026-11-06 (early pull; ROADMAP-V3-BATCH). Deep not started. Capstone assembly stays scheduled 2026-12-28 to 2026-12-30 and is not claimed here.
 Project: P25. Fleet node: All fleet nodes. Wave: Scaffold in Wave 0, assembly in Wave 8.
 
@@ -16,6 +18,10 @@ Build summary claim: Build built the fleet-capstone records chain from the 29 Le
 3. Read NOVELTY.md for the proposed novelty (DRAFT, pending the Jev claim_check gate).
 4. Start at level-1-learn/README.md, then level-2-build, then level-3-deep.
 
+## Research review
+
+docs/research-review.md grades this repo against a research rubric (question, hypotheses, method, baselines, uncertainty, reproducibility, threats, related work, limitations), lists what was fixed on 2026-11-07, and names what each remaining gap needs.
+
 ## Level map
 
 - Level 1, Learn: the core idea, built small and clean, with a teaching path.
@@ -29,11 +35,14 @@ Build summary claim: Build built the fleet-capstone records chain from the 29 Le
 | Learn records validated | 29 records, 0 validation errors (level-1-learn/capstone_learn.py, 2026-11-05) |
 | Learn coverage | 26 of 29 projects at v1.0; exceptions P19, P23, P25 (gh release list verified, 2026-11-05) |
 | Learn chain check | 6 of 6 SPEC layers covered by a v1.0 record; network layer partial on P23 (records chain, not a running chain) |
-| Learn tests | 29 hand-computed checks plus scaffold smoke test, all passing |
+| Learn tests | 34 hand-computed checks plus scaffold smoke test, all passing (29 at Learn close, 5 sensitivity checks added 2026-11-07) |
+| Coverage rule sensitivity | Primary project only: 5 of 6 layers, network fails because P23 is Learn only (level-1-learn/results_sensitivity.json, 2026-11-07) |
+| Proof links re-verified | 28 of 28 release links resolve; P25 has no link by design; P06 latest release is v1.2 (level-2-build/verify_links.json, 2026-11-07) |
 | Build architecture | 6 node groups, 29 projects: BlackBox (GPU) 11, BlackBoxV2 9, Dell R610 4, BlackBoxV3 3, Cluster 1, All nodes 1 (level-2-build/capstone_build.py, 2026-11-06) |
 | Build worked chains | 5 of 5 layer pairs pass both-sides v1.0 check; network to security partial on P23, covered by P20 v1.0 |
 | Build security posture | P24, P13, P20 records, all at v1.0, defensive only |
-| Build tests | 32 hand-computed Build checks plus 29 Learn checks plus scaffold smoke test, all passing |
+| Build tests | 35 hand-computed Build checks plus 34 Learn checks plus scaffold smoke test, all passing (32 at Build close, 3 link-parser checks added 2026-11-07) |
+| Site parity check | site/src/chain.check.mjs: the browser port reproduces results_learn.json, results_build.json and results_sensitivity.json exactly; runs inside npm run build |
 
 ## Novelty
 
