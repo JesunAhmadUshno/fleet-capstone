@@ -12,7 +12,7 @@ fleet-capstone: the whole fleet story in one checked chain, network to security 
 
 fleet-capstone is the capstone records project built by Jesun Ahmad Ushno as project P25 in Roadmap v3. It holds one deployment record for each of the 29 batch projects, validates them, groups them into the fleet architecture across 6 node groups, summarises the defensive security posture from the P24, P13, and P20 records, and checks 5 worked layer-pair chains. It runs on the Python standard library only. It is a records chain, not a running chain: no live deployment was run, and the full capstone assembly (Deep) stays scheduled 2026-12-28 to 2026-12-30 and is not claimed.
 
-Status: Build scope, 2026-11-06. Learn and Build are done. There is no v1.0 release yet. Level grades: Learn 7,900 of 10,000, Build 8,300 of 10,000. Tests at this scope: 61 level checks plus the scaffold smoke test, all passing.
+Status: Build scope, 2026-11-06. Learn and Build are done. There is no v1.0 release yet. Tests at this scope: 61 level checks plus the scaffold smoke test, all passing.
 
 ## Results
 

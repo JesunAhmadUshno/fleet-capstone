@@ -1,11 +1,11 @@
 name: Pages
 
-# Builds the live dashboard in site/ from the committed level-1-learn/ and level-2-build/ files and publishes it to GitHub Pages.
+# Builds the live dashboard in site/ from the committed results/, experiments/, README.md and REPORT.md and publishes it to GitHub Pages.
 # Replaces the legacy branch build of docs/ (a short Jekyll summary page); Pages build_type must be set to workflow.
 on:
   push:
     branches: [main]
-    paths: ['site/**', 'level-1-learn/**', 'level-2-build/**', '.github/workflows/pages.yml']
+    paths: ['site/**', 'results/**', 'experiments/**', 'README.md', 'REPORT.md', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:

@@ -16,13 +16,13 @@ Repository: https://github.com/JesunAhmadUshno/fleet-capstone
 
 Past: portfolio indexes and architecture diagrams already exist, and most of them are pictures: they show intent, not verified state. The prior art and the problem history are recorded in DOSSIER.md and NOVELTY.md in the repo. The novelty claim there stays marked PROPOSED. This post makes no novelty claim beyond the measured work below.
 
-Present: at Build scope, two levels are closed. Learn built a deployment record for each of the 29 batch projects, each v1.0 record carrying a GitHub release proof link verified with gh release list on 2026-11-05, plus named non-v1.0 records for the three exceptions (grade 7,900 of 10,000). Build reused those records by import and built the fleet architecture, the defensive security posture summary, and 5 worked layer-pair chains (grade 8,300 of 10,000).
+Present: at Build scope, two levels are closed. Learn built a deployment record for each of the 29 batch projects, each v1.0 record carrying a GitHub release proof link verified with gh release list on 2026-11-05, plus named non-v1.0 records for the three exceptions. Build reused those records by import and built the fleet architecture, the defensive security posture summary, and 5 worked layer-pair chains.
 
 Future: the capstone assembly (Deep) runs 2026-12-28 to 2026-12-30 on top of the finished set. The open exceptions it depends on are named, not hidden: P19 Deep waits on a verified Kaggle T4 x2 session, and P23 Build waits on a fresh live Dell R610 evidence capture in a planned power-on window. Until those windows open, the records say so.
 
 ## Main results claim
 
-At its Build scope, on records verified with gh release list on 2026-11-05: Learn built 29 deployment records, 26 at v1.0 with named exceptions P19, P23, and P25, validated with 0 errors, all 6 SPEC chain layers covered by at least one v1.0 record with the network layer named partial on P23, results_learn.json byte-identical across two runs at sha256 26dbffbd7093915dea66f6c24a55e5cd43603f0add6bfdd2d45b96d7f0bab51a, 29 Learn checks passing, grade 7,900 of 10,000; Build reused all 29 records by import, grouped them into 6 fleet architecture node groups (BlackBox GPU 11, BlackBoxV2 9, Dell R610 4, BlackBoxV3 3, Cluster 1, All nodes 1, summing to 29), derived a defensive security posture from the P24, P13, and P20 records, all at v1.0, and passed 5 of 5 worked layer-pair chains on the both-sides v1.0 check, with the network to security pair named partial on P23 because its network side is covered by P20 at v1.0 while P23 sits at Learn only, results_build.json byte-identical across two runs at sha256 9b34465d3232fc5284f2452592a6b7bd24d34d36a5d205314527561119dfd679, 32 Build checks passing, grade 8,300 of 10,000; no live deployment was run and the capstone Deep assembly stays scheduled 2026-12-28 to 2026-12-30 and is not claimed.
+At its Build scope, on records verified with gh release list on 2026-11-05: Learn built 29 deployment records, 26 at v1.0 with named exceptions P19, P23, and P25, validated with 0 errors, all 6 SPEC chain layers covered by at least one v1.0 record with the network layer named partial on P23, results_learn.json byte-identical across two runs at sha256 26dbffbd7093915dea66f6c24a55e5cd43603f0add6bfdd2d45b96d7f0bab51a, 29 Learn checks passing; Build reused all 29 records by import, grouped them into 6 fleet architecture node groups (BlackBox GPU 11, BlackBoxV2 9, Dell R610 4, BlackBoxV3 3, Cluster 1, All nodes 1, summing to 29), derived a defensive security posture from the P24, P13, and P20 records, all at v1.0, and passed 5 of 5 worked layer-pair chains on the both-sides v1.0 check, with the network to security pair named partial on P23 because its network side is covered by P20 at v1.0 while P23 sits at Learn only, results_build.json byte-identical across two runs at sha256 9b34465d3232fc5284f2452592a6b7bd24d34d36a5d205314527561119dfd679, 32 Build checks passing; no live deployment was run and the capstone Deep assembly stays scheduled 2026-12-28 to 2026-12-30 and is not claimed.
 
 Every number in that claim comes from a run recorded in the level READMEs and results files in the repo. Read the limits section below before quoting any of it.
 
@@ -43,8 +43,6 @@ Learn is the bookkeeping layer: one deployment record per project in level-1-lea
 | Tests | 29 hand-computed checks plus scaffold smoke, all passing |
 | Determinism | results_learn.json identical across two runs, sha256 26dbffbd7093915dea66f6c24a55e5cd43603f0add6bfdd2d45b96d7f0bab51a |
 
-Grade: 7,900 of 10,000, deductions itemized in the Learn README.
-
 ### Level 2, Build (release v0.5)
 
 Build reuses the Learn records by import (no copied content, no live deployment) and builds three things: the fleet architecture table grouped by fleet node, a defensive security posture summary derived from the P24, P13, and P20 records, and one worked chain record per layer pair, each with interface text and a pass check that both sides hold a v1.0 record.
@@ -62,7 +60,7 @@ Build reuses the Learn records by import (no copied content, no live deployment)
 | Tests | 32 hand-computed Build checks, 61 level checks in total with Learn, plus scaffold smoke, all passing |
 | Determinism | results_build.json identical across two runs, sha256 9b34465d3232fc5284f2452592a6b7bd24d34d36a5d205314527561119dfd679 |
 
-Grade: 8,300 of 10,000. Deductions are itemized in the Build README: minus 700 for a records chain rather than a running chain, minus 400 for the network layer partial on P23, minus 300 for no live deployment run, minus 200 for link-based interface descriptions rather than executable contracts, and minus 100 for running on the Muse VM instead of on all fleet nodes. Total deductions 1,700, and 10,000 minus 1,700 is 8,300.
+Limits named in the write-up: a records chain rather than a running chain, the network layer partial on P23, no live deployment run, link-based interface descriptions rather than executable contracts, and running on the Muse VM instead of on all fleet nodes.
 
 ## Honest limits
 
@@ -72,7 +70,7 @@ Grade: 8,300 of 10,000. Deductions are itemized in the Build README: minus 700 f
 - Link-based interfaces: interface descriptions point to releases. They are not executable contracts or tested integrations.
 - Security posture is a records summary, defensive only. It is not a live audit of any node, and it carries no offensive content.
 - Deep is not built and not claimed. The assembly window is 2026-12-28 to 2026-12-30.
-- The runs executed on the Muse VM, not on all fleet nodes. That deduction is named in each level grade.
+- The runs executed on the Muse VM, not on all fleet nodes. That limit is named in each level write-up.
 
 ## Where to go next
 

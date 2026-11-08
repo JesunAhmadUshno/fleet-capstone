@@ -1,20 +1,20 @@
 import { useMemo, useState, useEffect, useId } from 'react';
-import recordsFile from '../../level-1-learn/records.json';
-import learn from '../../level-1-learn/results_learn.json';
-import sens from '../../level-1-learn/results_sensitivity.json';
-import build from '../../level-2-build/results_build.json';
-import links from '../../level-2-build/verify_links.json';
-import learnReadme from '../../level-1-learn/README.md?raw';
-import buildReadme from '../../level-2-build/README.md?raw';
-import { chainSpec, validateRecords, coverage, chainCheck, fleetArchitecture, workedChains, parseLevelReadme } from './chain.js';
+import recordsFile from '../../experiments/records-2026-11-05.json';
+import learn from '../../results/learn.json';
+import sens from '../../results/sensitivity.json';
+import build from '../../results/build.json';
+import links from '../../experiments/verify-links-2026-11-07.json';
+import readmeText from '../../README.md?raw';
+import reportText from '../../REPORT.md?raw';
+import { chainSpec, validateRecords, coverage, chainCheck, fleetArchitecture, workedChains, parseReport, parseReadme } from './chain.js';
 
 const REPO = 'https://github.com/JesunAhmadUshno/fleet-capstone';
 const blob = (p) => `${REPO}/blob/main/${p}`;
 const RECORDS = recordsFile.records;
 const TOTAL = recordsFile.total_projects;
 const SPEC = chainSpec(learn, build);
-const LEARN_MD = parseLevelReadme(learnReadme);
-const BUILD_MD = parseLevelReadme(buildReadme);
+const REPORT_MD = parseReport(reportText);
+const README_MD = parseReadme(readmeText);
 const LINK_ROWS = Object.fromEntries(links.rows.map((r) => [r.project, r]));
 const NODES = [...new Set(RECORDS.map((r) => r.node))].sort();
 const STATUSES = [...new Set(RECORDS.map((r) => r.status))].sort();
@@ -22,7 +22,7 @@ const fmt = (n) => n.toLocaleString('en-US');
 const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 const tagOf = (link) => (link ? link.split('/').pop() : '');
 
-const SECTIONS = [['top', 'Overview', '◎'], ['chain', 'Chain', '⛓'], ['checker', 'What-if', '⚙'], ['fleet', 'Fleet', '▤'], ['records', 'Records', '{}'], ['validator', 'Validator', '✓'], ['posture', 'Security', '◈'], ['pairs', 'Handoffs', '⇄'], ['grade', 'Grade', '★'], ['reproduce', 'Reproduce', '❯_']];
+const SECTIONS = [['top', 'Overview', '◎'], ['chain', 'Chain', '⛓'], ['checker', 'What-if', '⚙'], ['fleet', 'Fleet', '▤'], ['records', 'Records', '{}'], ['validator', 'Validator', '✓'], ['posture', 'Security', '◈'], ['pairs', 'Handoffs', '⇄'], ['status', 'Status', '★'], ['reproduce', 'Reproduce', '❯_']];
 
 function useNarrow() {
   const q = '(max-width: 760px)';
@@ -53,10 +53,8 @@ function MenuBar() {
     <div className="menubar" role="banner">
       <span className="apple" aria-hidden="true">◆</span>
       <a className="app" href="#top">fleet-capstone</a>
-      <a className="m" href={blob('SPEC.md')}>Spec</a>
-      <a className="m" href={blob('level-1-learn/README.md')}>Learn</a>
-      <a className="m" href={blob('level-2-build/README.md')}>Build</a>
-      <a className="m" href={blob('docs/research-review.md')}>Review</a>
+      <a className="m" href={blob('PROPOSAL.md')}>Proposal</a>
+      <a className="m" href={blob('REPORT.md')}>Report</a>
       <span className="spacer" />
       <span className="status"><i /> records chain</span>
       <a href={REPO}>GitHub ↗</a>
@@ -106,11 +104,11 @@ export default function App() {
       <Validator />
       <Posture />
       <Pairs />
-      <Grade />
+      <Status />
       <Reproduce />
       <Dock />
       <footer>
-        Records as of {recordsFile.as_of}. Code: Apache-2.0. Every number on this page is read from <code>level-1-learn/</code> and <code>level-2-build/</code> at build time or computed in your browser from <code>records.json</code>; a build-time check proves the browser code reproduces the Python results.
+        Records as of {recordsFile.as_of}. Code: Apache-2.0. Every number on this page is read from <code>results/</code>, <code>experiments/</code>, README.md and REPORT.md at build time or computed in your browser from the records file; a build-time check proves the browser code reproduces the Python results.
       </footer>
     </div>
   );
@@ -135,7 +133,7 @@ function Hero() {
       </p>
       <div className="actions">
         <a className="btn primary" href="#checker">Open the what-if checker</a>
-        <a className="btn ghost" href={blob('level-1-learn/README.md')}>Read the Learn write-up</a>
+        <a className="btn ghost" href={blob('REPORT.md')}>Read the report</a>
         <span className="hint">Learn results as of {learn.as_of}, Build results as of {build.as_of}</span>
       </div>
       <div className="tiles">
@@ -231,9 +229,9 @@ function Checker({ what, rule, setRule, shipped, setShipped, reset }) {
           <p className="eyebrow">Live in your browser</p>
           <h2>What if a project had not shipped? Toggle it and the chain re-checks itself.</h2>
           <p className="sub">
-            The checker is a line-by-line port of <a href={blob('level-1-learn/capstone_learn.py')}>capstone_learn.py</a> and <a href={blob('level-2-build/capstone_build.py')}>capstone_build.py</a>.
-            At its default state it reproduces <span className="mono">results_learn.json</span> and <span className="mono">results_build.json</span> exactly, which <span className="mono">npm run build</span> asserts before every deploy.
-            The stricter rule counts only each layer's primary SPEC project; the repo records that result in <span className="mono">results_sensitivity.json</span>.
+            The checker is a line-by-line port of <a href={blob('src/capstone_learn.py')}>capstone_learn.py</a> and <a href={blob('src/capstone_build.py')}>capstone_build.py</a>.
+            At its default state it reproduces <span className="mono">results/learn.json</span> and <span className="mono">results/build.json</span> exactly, which <span className="mono">npm run build</span> asserts before every deploy.
+            The stricter rule counts only each layer's primary SPEC project; the repo records that result in <span className="mono">results/sensitivity.json</span>.
           </p>
         </div>
         <span className={`pill ${isDefault ? 'info' : 'warn'}`}>{isDefault ? 'Default = recorded results' : 'What-if, not recorded'}</span>
@@ -302,7 +300,7 @@ function Fleet() {
   const ids = Object.fromEntries(RECORDS.map((rr) => [rr.project, rr]));
   return (
     <section id="fleet" className="card window reveal" data-title="fleet-architecture.tsv">
-      <p className="eyebrow">Fleet architecture · recorded, from results_build.json</p>
+      <p className="eyebrow">Fleet architecture · recorded, from results/build.json</p>
       <h2>{build.architecture.total_projects} projects across {build.architecture.group_count} node groups.</h2>
       <p className="sub">Bar length is the number of projects on a node; the solid part is how many are at v1.0. Select a group to list its projects and proof links.</p>
       <div className="scroll-x" style={{ overflowX: 'auto', marginTop: 16 }}>
@@ -349,14 +347,14 @@ function Records() {
     </th>
   );
   return (
-    <section id="records" className="card window reveal" data-title="records.json">
+    <section id="records" className="card window reveal" data-title="records-2026-11-05.json">
       <div className="head">
         <div>
           <p className="eyebrow">The records · as of {recordsFile.as_of}</p>
           <h2>All {RECORDS.length} records, filterable and sortable.</h2>
           <p className="sub">
             Status is frozen at {recordsFile.as_of}, so this is not current status: P25 (this repo) still reads "{RECORDS.find((r) => r.project === 'P25').status}" by design.
-            The <span className="mono">latest release</span> column comes from <a href={blob('level-2-build/verify_links.py')}>verify_links.py</a>, re-run on {links.checked_on}: {links.links_resolved} of {links.links_checked} proof links still resolve.
+            The <span className="mono">latest release</span> column comes from <a href={blob('src/verify_links.py')}>verify_links.py</a>, re-run on {links.checked_on}: {links.links_resolved} of {links.links_checked} proof links still resolve.
             Only {distinctSteps} distinct <span className="mono">steps</span> strings exist across {RECORDS.length} records, so steps carry little per-project detail.
           </p>
         </div>
@@ -442,7 +440,7 @@ function Posture() {
   const sp = build.security_posture;
   return (
     <section id="posture" className="card window reveal" data-title="security-posture.md">
-      <p className="eyebrow">Security posture · recorded, from results_build.json</p>
+      <p className="eyebrow">Security posture · recorded, from results/build.json</p>
       <h2>{sp.v1_0_count} of {sp.projects.length} security records at v1.0, defensive only.</h2>
       <p className="sub">{sp.basis} This is a summary of records, not a live audit of any node.</p>
       <div className="grid3" style={{ marginTop: 16 }}>
@@ -462,7 +460,7 @@ function Posture() {
 function Pairs() {
   return (
     <section id="pairs" className="card window reveal" data-title="worked-chains.log">
-      <p className="eyebrow">Worked chains · recorded, from results_build.json</p>
+      <p className="eyebrow">Worked chains · recorded, from results/build.json</p>
       <h2>{build.layer_pairs_passed} of {build.layer_pairs_total} handoffs pass the both-sides check.</h2>
       <p className="sub">The check is “{build.worked_chains[0].check}”. Interfaces are prose that points at releases, not executable contracts, so a pass means both sides shipped, not that they interoperate.</p>
       <div className="log" style={{ marginTop: 16 }}>
@@ -479,58 +477,45 @@ function Pairs() {
   );
 }
 
-function Grade() {
-  const levels = [['Learn', LEARN_MD, 'level-1-learn/README.md'], ['Build', BUILD_MD, 'level-2-build/README.md']];
-  const limits = [...LEARN_MD.limits, ...BUILD_MD.limits.filter((b) => !LEARN_MD.limits.some((l) => l.title === b.title))];
+function Status() {
+  const done = README_MD.stages.filter((s) => s.status === 'DONE').length;
   return (
-    <section id="grade" className="card window reveal" data-title="grade.md">
-      <p className="eyebrow">Self-grades and limits · parsed from the level READMEs at build time</p>
-      <h2>Graded by the author, with every deduction named.</h2>
-      <p className="sub">These are self-assigned grades with no outside reviewer, which is itself a limit. Each bar is one named deduction; together they account for the full gap to {fmt(LEARN_MD.outOf)}.</p>
+    <section id="status" className="card window reveal" data-title="lifecycle.md">
+      <p className="eyebrow">Lifecycle and limits · parsed from README.md and REPORT.md at build time</p>
+      <h2>{done} of {README_MD.stages.length} stages done. Verdict: <em>{README_MD.verdict}</em>.</h2>
+      <p className="sub">Stages and verdict are read from README.md; the plan is PROPOSAL.md. Nothing here is a progress estimate.</p>
       <div className="grid2" style={{ marginTop: 16 }}>
-        {levels.map(([name, md, path]) => (
-          <div key={name}>
-            <div className="tile" style={{ marginBottom: 12 }}><div className="num">{fmt(md.grade)}<small> / {fmt(md.outOf)}</small></div><div className="cap">{name} self-grade · <a href={blob(path)}>source</a></div></div>
-            <div className="bars">
-              {md.deductions.map((d) => (
-                <div className="bar-row" key={d.text}>
-                  <div className="lab"><span>{cap(d.text)}</span><b>−{fmt(d.minus)}</b></div>
-                  <div className="track"><div className="fill" style={{ width: `${(d.minus / Math.max(...md.deductions.map((x) => x.minus))) * 100}%`, background: 'var(--warn)' }} /></div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {README_MD.stages.map((s) => (
+          <div className="tile" key={s.stage}><h3>{s.stage}</h3><p className="hint" style={{ margin: '4px 0 0' }}>{s.status}{s.date ? ` ${s.date}` : ''}</p></div>
         ))}
       </div>
-      <h3 style={{ marginTop: 24 }}>Limits, from the README failure modes</h3>
+      <h3 style={{ marginTop: 24 }}>Limits, from the REPORT failure modes</h3>
       <div className="grid2 limits" style={{ marginTop: 10 }}>
-        {limits.map((l) => (
+        {REPORT_MD.limits.map((l) => (
           <div className="tile" key={l.title}><h3>{l.title}</h3><p className="hint" style={{ margin: '4px 0 0' }}>{cap(l.text)}</p></div>
         ))}
       </div>
-      <p className="hint" style={{ marginTop: 14 }}>The full research review, with each gap and what it would take to close it, is in <a href={blob('docs/research-review.md')}>docs/research-review.md</a>.</p>
+      <p className="hint" style={{ marginTop: 14 }}>Each open gap, with what it would take to close it, is in <a href={blob('REPORT.md')}>REPORT.md</a>.</p>
     </section>
   );
 }
 
 function Reproduce() {
   const docs = [
-    ['SPEC.md', 'Spec', 'Scope and acceptance criteria'],
-    ['level-1-learn/README.md', 'Learn', 'Records, validator, chain check'],
-    ['level-2-build/README.md', 'Build', 'Architecture, posture, handoffs'],
-    ['level-2-build/verify_links.json', 'Link check', `Re-run ${links.checked_on}`],
-    ['docs/research-review.md', 'Research review', 'Rubric grades and open gaps'],
+    ['PROPOSAL.md', 'Proposal', 'Question, scope, draft drill plan'],
+    ['REPORT.md', 'Report', 'Baseline records audit, limits, open gaps'],
+    ['experiments/verify-links-2026-11-07.json', 'Link check', `Re-run ${links.checked_on}`],
   ];
   return (
     <section id="reproduce" className="card window reveal" data-title="reproduce.sh">
       <p className="eyebrow">Reproduce it</p>
       <h2>Standard-library Python, two runners, byte-identical output.</h2>
       <ol className="steps" style={{ marginTop: 16 }}>
-        <li><span className="n">1</span><div><b>Run the tests and the Learn runner</b><div className="hint"><code>python tests/test_learn_capstone.py && python level-1-learn/run_learn.py</code></div></div></li>
-        <li><span className="n">2</span><div><b>Run the Build runner</b><div className="hint"><code>python tests/test_build_capstone.py && python level-2-build/run_build.py</code></div></div></li>
-        <li><span className="n">3</span><div><b>Compare hashes with the ones quoted in the READMEs</b><div className="hint"><code>sha256sum level-1-learn/results_learn.json level-2-build/results_build.json</code></div>
-          <div className="hint mono hash">results_learn.json {LEARN_MD.sha256}<br />results_build.json {BUILD_MD.sha256}</div>
-          <div className="hint">The site build re-hashes both committed files and fails if they differ from these README values.</div></div></li>
+        <li><span className="n">1</span><div><b>Run the tests and the Learn runner</b><div className="hint"><code>python tests/test_learn_capstone.py && python src/run_learn.py</code></div></div></li>
+        <li><span className="n">2</span><div><b>Run the Build runner</b><div className="hint"><code>python tests/test_build_capstone.py && python src/run_build.py</code></div></div></li>
+        <li><span className="n">3</span><div><b>Compare hashes with the ones quoted in REPORT.md</b><div className="hint"><code>sha256sum results/learn.json results/build.json</code></div>
+          <div className="hint mono hash">results/learn.json {REPORT_MD.hashes['results/learn.json']}<br />results/build.json {REPORT_MD.hashes['results/build.json']}</div>
+          <div className="hint">The site build re-hashes both committed files and fails if they differ from these REPORT values.</div></div></li>
       </ol>
       <div className="docs" style={{ marginTop: 20 }}>
         {docs.map(([p, t, d]) => <a key={p} href={blob(p)}><b>{t}</b><small>{d}</small></a>)}

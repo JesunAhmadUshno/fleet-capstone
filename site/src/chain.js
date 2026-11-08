@@ -1,6 +1,6 @@
-// JS port of level-1-learn/capstone_learn.py and level-2-build/capstone_build.py.
+// JS port of src/capstone_learn.py and src/capstone_build.py.
 // Pure functions over the committed data; chain.check.mjs proves they reproduce
-// results_learn.json, results_build.json and results_sensitivity.json exactly.
+// results/learn.json, results/build.json and results/sensitivity.json exactly.
 
 const REQUIRED_FIELDS = ['project', 'repo', 'node', 'status', 'steps', 'proof_link'];
 const py = (v) => (v === null ? 'None' : v); // Python f-string rendering of None
@@ -109,19 +109,20 @@ export function securityPosture(records, spec) {
   return { projects: items, all_v1_0: items.every((i) => i.status === 'v1.0'), v1_0_count: items.filter((i) => i.status === 'v1.0').length };
 }
 
-// ---- README parsing: grades, deductions, sha256 and failure modes live only in prose ----
-export function parseLevelReadme(text) {
-  const g = text.match(/\nGrade ([\d,]+) of ([\d,]+)\. Deductions: ([\s\S]*?)\.\n\n/);
-  const num = (s) => Number(s.replace(/,/g, ''));
-  const deductions = g ? g[3].replace(/\s+/g, ' ').split(/;\s*/).map((d) => {
-    const m = d.match(/^(.*) \(minus (\d+)\)$/);
-    return m && { text: m[1].trim(), minus: Number(m[2]) };
-  }) : [];
-  const shaM = text.match(/sha256 ([0-9a-f]{64})/);
+// ---- Prose parsing: hashes, failure modes, lifecycle and verdict live only in REPORT.md and README.md ----
+export function parseReport(text) {
+  const hashes = Object.fromEntries([...text.matchAll(/^- (results\/[\w.]+) sha256 ([0-9a-f]{64})$/gm)].map((m) => [m[1], m[2]]));
   const fm = text.match(/## Failure modes\n\n([\s\S]*?)\n\n## /);
   const limits = fm ? fm[1].split(/\n- /).map((b) => b.replace(/^- /, '').replace(/\s+/g, ' ').trim()).map((b) => {
     const i = b.indexOf(': ');
     return { title: b.slice(0, i), text: b.slice(i + 2) };
   }) : [];
-  return { grade: g ? num(g[1]) : null, outOf: g ? num(g[2]) : null, deductions, sha256: shaM ? shaM[1] : null, limits };
+  return { hashes, limits };
+}
+
+export function parseReadme(text) {
+  const verdict = (text.match(/^\*\*Verdict\.\*\* ([^.]+)/m) || [])[1] || null;
+  const lc = text.match(/## Lifecycle\n\n([\s\S]*?)\n\n/);
+  const stages = lc ? [...lc[1].matchAll(/^- (\w+): (\w+)(?: (\d{4}-\d{2}-\d{2}))?$/gm)].map((m) => ({ stage: m[1], status: m[2], date: m[3] || null })) : [];
+  return { verdict, stages };
 }

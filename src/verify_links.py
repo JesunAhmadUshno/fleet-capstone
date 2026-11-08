@@ -1,15 +1,15 @@
-"""Re-check every proof link in records.json against GitHub releases.
+"""Re-check every proof link in the records file against GitHub releases.
 
 Standard library plus the gh CLI (free GitHub API, no paid service).
 For each record with a proof link it asks gh whether that release tag
 exists and which tag is the repo's latest release, then writes
-verify_links.json (sorted keys, no timings, one checked_on date).
+a dated experiments/verify-links-<date>.json (sorted keys, no timings, one checked_on date).
 
 This replaces the one-off "verified with gh release list" hand check
 with a committed script and a committed output. It needs network access
 and a signed-in gh, so it is not part of the offline test suite.
 
-Run: python level-2-build/verify_links.py
+Run: python src/verify_links.py
 """
 import datetime
 import json
@@ -19,7 +19,7 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), "level-1-learn"))
+sys.path.insert(0, HERE)
 from capstone_learn import load_records  # noqa: E402
 
 TAG_RE = re.compile(r"^https://github\.com/(JesunAhmadUshno/[a-z0-9-]+)/releases/tag/([^/]+)$")
@@ -62,7 +62,7 @@ def verify(records):
 
 if __name__ == "__main__":
     result = verify(load_records())
-    out = os.path.join(HERE, "verify_links.json")
+    out = os.path.join(os.path.dirname(HERE), "experiments", "verify-links-" + result["checked_on"] + ".json")
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(result, fh, indent=2, sort_keys=True)
         fh.write("\n")
