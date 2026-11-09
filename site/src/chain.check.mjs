@@ -3,16 +3,16 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { chainSpec, validateRecord, validateRecords, coverage, chainCheck, fleetArchitecture, workedChains, securityPosture, parseLevelReadme } from './chain.js';
+import { chainSpec, validateRecord, validateRecords, coverage, chainCheck, fleetArchitecture, workedChains, securityPosture, parseReport, parseReadme } from './chain.js';
 
 const root = new URL('../../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
 const json = (p) => JSON.parse(read(p));
-const data = json('level-1-learn/records.json');
-const learn = json('level-1-learn/results_learn.json');
-const sens = json('level-1-learn/results_sensitivity.json');
-const build = json('level-2-build/results_build.json');
-const links = json('level-2-build/verify_links.json');
+const data = json('experiments/records-2026-11-05.json');
+const learn = json('results/learn.json');
+const sens = json('results/sensitivity.json');
+const build = json('results/build.json');
+const links = json('experiments/verify-links-2026-11-07.json');
 const records = data.records;
 const spec = chainSpec(learn, build);
 
@@ -56,14 +56,14 @@ const noP20 = records.map((r) => (r.project === 'P20' ? { ...r, status: 'not shi
 assert.equal(chainCheck(noP20, spec).layers.network.covered, false);
 assert.equal(workedChains(noP20, spec).filter((c) => c.passed).length, 4);
 
-// README prose: grades sum with their deductions, quoted sha256 equals the committed file
-for (const [readme, results] of [['level-1-learn/README.md', 'level-1-learn/results_learn.json'], ['level-2-build/README.md', 'level-2-build/results_build.json']]) {
-  const r = parseLevelReadme(read(readme));
-  assert.ok(r.grade && r.deductions.length && r.deductions.every(Boolean), `${readme} grade parse`);
-  assert.equal(r.grade + r.deductions.reduce((s, d) => s + d.minus, 0), r.outOf, `${readme} deductions sum`);
-  assert.equal(createHash('sha256').update(readFileSync(new URL(results, root))).digest('hex'), r.sha256, `${readme} sha256`);
-  assert.ok(r.limits.length >= 4 && r.limits.every((l) => l.title && l.text), `${readme} failure modes`);
-}
+// Prose: quoted sha256 values equal the committed files; failure modes and lifecycle parse
+const rep = parseReport(read('REPORT.md'));
+assert.deepEqual(Object.keys(rep.hashes).sort(), ['results/build.json', 'results/learn.json'], 'REPORT.md hashes');
+for (const [p, h] of Object.entries(rep.hashes)) assert.equal(createHash('sha256').update(readFileSync(new URL(p, root))).digest('hex'), h, `${p} sha256`);
+assert.ok(rep.limits.length >= 4 && rep.limits.every((l) => l.title && l.text), 'REPORT.md failure modes');
+const rd = parseReadme(read('README.md'));
+assert.ok(rd.verdict, 'README verdict');
+assert.deepEqual(rd.stages.map((s) => s.stage), ['Question', 'Proposal', 'Baseline', 'Build', 'Evaluate', 'Report', 'Review', 'Release'], 'README lifecycle');
 
 // Link verification file agrees with the records
 assert.equal(links.links_checked, records.filter((r) => r.proof_link).length);

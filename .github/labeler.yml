@@ -1,12 +1,12 @@
-learn:
+code:
   - changed-files:
-      - any-glob-to-any-file: ["level-1-learn/**"]
-build:
+      - any-glob-to-any-file: ["src/**"]
+evidence:
   - changed-files:
-      - any-glob-to-any-file: ["level-2-build/**"]
-deep:
+      - any-glob-to-any-file: ["experiments/**", "results/**"]
+site:
   - changed-files:
-      - any-glob-to-any-file: ["level-3-deep/**"]
+      - any-glob-to-any-file: ["site/**"]
 tests:
   - changed-files:
       - any-glob-to-any-file: ["tests/**"]
@@ -18,4 +18,4 @@ automation:
       - any-glob-to-any-file: [".github/**", "ruff.toml"]
 docs:
   - changed-files:
-      - any-glob-to-any-file: ["docs/**", "README.md", "DOSSIER.md"]
+      - any-glob-to-any-file: ["docs/**", "README.md", "PROPOSAL.md", "REPORT.md", "CHANGELOG.md"]

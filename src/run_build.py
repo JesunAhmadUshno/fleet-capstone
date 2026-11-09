@@ -1,4 +1,4 @@
-"""Run the Build assembly, write results_build.json deterministically."""
+"""Run the Build assembly, write results/build.json deterministically."""
 import json
 import os
 import sys
@@ -8,7 +8,7 @@ from capstone_build import run_all  # noqa: E402
 
 if __name__ == "__main__":
     results = run_all()
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results_build.json")
+    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results", "build.json")
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(results, fh, indent=2, sort_keys=True)
         fh.write("\n")

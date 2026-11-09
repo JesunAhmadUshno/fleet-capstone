@@ -1,4 +1,4 @@
-"""Hand-computed tests for P25 Build. Counts from records.json verified in code first:
+"""Hand-computed tests for P25 Build. Counts from experiments/records-2026-11-05.json verified in code first:
 29 records, 26 v1.0, groups: BlackBox (GPU) 11, BlackBoxV2 9, Dell R610 4, BlackBoxV3 3,
 Cluster 1, All nodes 1 = 6 groups, 29 total. 5 layer pairs.
 Run: python tests/test_build_capstone.py
@@ -7,8 +7,7 @@ import os
 import sys
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT,"level-2-build"))
-sys.path.insert(0, os.path.join(ROOT,"level-1-learn"))
+sys.path.insert(0, os.path.join(ROOT,"src"))
 from capstone_build import (  # noqa: E402
     LAYER_PAIRS,
     fleet_architecture,

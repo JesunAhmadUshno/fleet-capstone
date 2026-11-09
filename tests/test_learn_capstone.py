@@ -9,7 +9,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "level-1-learn"))
+sys.path.insert(0, os.path.join(ROOT, "src"))
 from capstone_learn import (  # noqa: E402
     CHAIN_LAYERS,
     chain_check,

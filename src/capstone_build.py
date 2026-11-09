@@ -1,7 +1,7 @@
 """Fleet capstone Build: architecture, security posture, worked chains.
 
 Standard library only. Reuses the Learn level by import: the records
-and the chain layer mapping come from level-1-learn (capstone_learn),
+and the chain layer mapping come from capstone_learn,
 not from copied content. Project repos are linked through their proof
 links, never copied.
 
@@ -12,10 +12,7 @@ and it names the one partial project (P23) honestly.
 import os
 import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-LEARN_DIR = os.path.join(ROOT, "level-1-learn")
-sys.path.insert(0, LEARN_DIR)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from capstone_learn import CHAIN_LAYERS, load_records  # noqa: E402
 
 LAYER_ORDER = ["network", "security", "model", "serving", "scoring", "watching"]

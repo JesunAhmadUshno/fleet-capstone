@@ -1,6 +1,6 @@
 """Fleet capstone Learn: deployment records validator and chain checker.
 
-Standard library only. The data is records.json: one deployment record
+Standard library only. The data is experiments/records-2026-11-05.json: one deployment record
 per ROADMAP-V3-BATCH project (29 projects), written as each project
 shipped, per SPEC.md Learn scope (node, steps, proof link).
 
@@ -16,7 +16,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RECORDS_PATH = os.path.join(HERE, "records.json")
+RECORDS_PATH = os.path.join(os.path.dirname(HERE), "experiments", "records-2026-11-05.json")
 
 REQUIRED_FIELDS = ["project", "repo", "node", "status", "steps", "proof_link"]
 TOTAL_PROJECTS = 29
@@ -129,8 +129,8 @@ def chain_check_primary(records):
 
     A layer counts as covered only when its primary project (the first one
     listed in CHAIN_LAYERS, the one SPEC.md names) is at v1.0. Kept apart
-    from chain_check so results_learn.json and its quoted sha256 stay as
-    recorded; run_learn.py writes this to results_sensitivity.json.
+    from chain_check so results/learn.json and its quoted sha256 stay as
+    recorded; run_learn.py writes this to results/sensitivity.json.
     """
     by_id = {r["project"]: r for r in records}
     primaries = {layer: projects[0] for layer, projects in CHAIN_LAYERS.items()}

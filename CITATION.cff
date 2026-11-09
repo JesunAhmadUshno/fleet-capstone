@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "fleet-capstone: a records audit and a planned end-to-end chain drill across a self-hosted fleet"
+authors:
+  - family-names: Ushno
+    given-names: Jesun Ahmad
+repository-code: "https://github.com/JesunAhmadUshno/fleet-capstone"
+url: "https://jesunahmadushno.github.io/fleet-capstone/"
+license: Apache-2.0
+date-released: 2026-11-08
