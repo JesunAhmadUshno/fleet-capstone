@@ -93,7 +93,7 @@ export default function App() {
   }, [shipped, rule]);
   const reset = () => { setShipped(Object.fromEntries(RECORDS.map((r) => [r.project, r.status === 'v1.0']))); setRule('any'); };
   return (
-    <div className="wrap">
+    <div className="wrap"><a className="skip" href="#top">Skip to content</a>
       <MenuBar />
       <div className="glow" aria-hidden="true" />
       <Hero />
@@ -109,7 +109,7 @@ export default function App() {
       <Dock />
       <footer>
         Records as of {recordsFile.as_of}. Code: Apache-2.0. Every number on this page is read from <code>results/</code>, <code>experiments/</code>, README.md and REPORT.md at build time or computed in your browser from the records file; a build-time check proves the browser code reproduces the Python results.
-      </footer>
+      <nav className="support" aria-label="Support this work"><a href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a><a href="https://github.com/sponsors/JesunAhmadUshno">Donate</a><a href="https://buymeacoffee.com/jesun">Buy Me a Coffee</a><a href="https://calendly.com/jesunahmadushno/30min">Work with me</a></nav></footer>
     </div>
   );
 }
@@ -119,7 +119,7 @@ function Hero() {
   const covered = layers.filter((l) => l.covered).length;
   const partial = SPEC.order.filter((l) => learn.chain_layers[l].partial_projects.length);
   return (
-    <header className="card hero window" id="top" data-title="fleet-capstone — README.md">
+    <header className="card hero window" id="top" data-title="fleet-capstone - README.md">
       <div className="head">
         <p className="eyebrow">Integration capstone · records as of {learn.as_of}</p>
         <span className="pill warn">● Records chain, not a running chain</span>
@@ -223,7 +223,7 @@ function Checker({ what, rule, setRule, shipped, setShipped, reset }) {
   const passed = what.pairs.filter((p) => p.passed).length;
   const isDefault = what.changed.length === 0 && rule === 'any';
   return (
-    <section id="checker" className="card window reveal" data-title="chain-checker.app — live">
+    <section id="checker" className="card window reveal" data-title="chain-checker.app - live">
       <div className="head">
         <div>
           <p className="eyebrow">Live in your browser</p>
@@ -402,7 +402,7 @@ function Validator() {
     <div className="field"><label htmlFor={`v-${k}`}>{label}</label><input id={`v-${k}`} type="text" value={draft[k] ?? ''} onChange={set(k)} {...extra} /></div>
   );
   return (
-    <section id="validator" className="card window reveal" data-title="validator.py — playground">
+    <section id="validator" className="card window reveal" data-title="validator.py - playground">
       <div className="head">
         <div>
           <p className="eyebrow">Live in your browser</p>
